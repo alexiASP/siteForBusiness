@@ -4,6 +4,7 @@
 @import "mixins";
 @import "fa-scss/fontawesome";
 @import "fa-scss/brands";
+@import "js-classes";
 
 body {
   font: $project_font;
@@ -843,13 +844,15 @@ a.menu__consultation {
   border: 3px solid #ffffff;
   border-radius: 50%;
   background: transparent url("../media/images/facebook-analysis_chevron-light.svg") center / 24px no-repeat;
-  margin-bottom: 56px;
+  cursor: pointer;
 }
 
 .facebook-analysis__user-data {
-  min-height: 448px;
+  height: 448px;
   background-color: #ffffff;
   position: relative;
+  margin-top: 56px;
+
   &:before {
     content: "";
     display: block;
@@ -881,7 +884,7 @@ a.menu__consultation {
     display: block;
   }
 }
-.user-data__close-form {
+#close-form2 {
   position: absolute;
   height: 49px;
   width: 49px;

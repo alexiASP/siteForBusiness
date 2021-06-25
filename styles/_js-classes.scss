@@ -1,0 +1,13 @@
+._form-closed {
+  transition: height 300ms 500ms, opacity 500ms, padding 300ms 500ms, margin-top 300ms 500ms, visibility 0ms 800ms;
+  opacity: 0 !important;
+  height: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  visibility: hidden;
+}
+._form-opened {
+  transition: height 300ms, opacity 500ms 300ms, padding 300ms, margin-top 300ms;
+  visibility: visible;
+  opacity: 1;
+}

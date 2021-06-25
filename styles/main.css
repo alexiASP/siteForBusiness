@@ -4685,6 +4685,19 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
   font-weight: 400; }
 
+._form-closed {
+  transition: height 300ms 500ms, opacity 500ms, padding 300ms 500ms, margin-top 300ms 500ms, visibility 0ms 800ms;
+  opacity: 0 !important;
+  height: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  visibility: hidden; }
+
+._form-opened {
+  transition: height 300ms, opacity 500ms 300ms, padding 300ms, margin-top 300ms;
+  visibility: visible;
+  opacity: 1; }
+
 body {
   font: normal normal 400 14px/22px "Open Sans", sans-serif; }
 
@@ -5398,12 +5411,13 @@ a.menu__consultation {
   border: 3px solid #ffffff;
   border-radius: 50%;
   background: transparent url("../media/images/facebook-analysis_chevron-light.svg") center/24px no-repeat;
-  margin-bottom: 56px; }
+  cursor: pointer; }
 
 .facebook-analysis__user-data {
-  min-height: 448px;
+  height: 448px;
   background-color: #ffffff;
-  position: relative; }
+  position: relative;
+  margin-top: 56px; }
   .facebook-analysis__user-data:before {
     content: "";
     display: block;
@@ -5431,7 +5445,7 @@ a.menu__consultation {
   .user-data * {
     display: block; }
 
-.user-data__close-form {
+#close-form2 {
   position: absolute;
   height: 49px;
   width: 49px;
