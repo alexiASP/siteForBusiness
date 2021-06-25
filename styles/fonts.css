@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@font-face {
+  src: url("../fonts/georgia_bold.ttf") format("ttf");
+  font-family: Georgia;
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal; }
+
+/*# sourceMappingURL=fonts.css.map */

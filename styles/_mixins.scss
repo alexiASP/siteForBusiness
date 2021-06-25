@@ -1,0 +1,90 @@
+@use "sass:math";
+@import "variables";
+
+/* frequent used mixins */
+@mixin unselectable {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+/* button mixins */
+@mixin button($button) {
+  @include unselectable;
+
+  @for $i from 1 to length($button) + 1 {
+    $actual-properties: nth($button, $i);
+    $property: unquote(map-get($actual-properties, "name"));
+    @each $name, $glyph in $actual-properties {
+      @if $glyph != $property {
+        @if ((($property == font) and ($name == "color")) or (($property == b-size))) {
+          #{$name}: $glyph;
+        } @else {
+          #{$property}-#{$name}: $glyph;
+        }
+      }
+    }
+  }
+
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+  overflow: hidden;
+  text-align: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* button presets */
+@mixin button-1($width, $height) {
+  @include button((("name": background, "color": #f8cd53), ("name": border, "radius": 7px), ("name": font, "weight": 700, "size": 23px, "height": 20px, "color": #ffffff), ("name": b-size, "max-width": $width, "width": 90%, "height": $height), ("name": text, "transform": uppercase)));
+  @include scale-btn__anim(0.95);
+}
+@mixin button-2($width, $height) {
+  @include button((("name": background, "color": $color4), ("name": border, "radius": 7px), ("name": font, "weight": 700, "size": 23px, "height": 20px, "color": #ffffff), ("name": b-size, "max-width": $width, "width": 90%, "height": $height), ("name": text, "transform": uppercase)));
+  @include scale-btn__anim(0.95);
+}
+@mixin button-3($width, $height) {
+  @include button((
+  ("name": background, "color": $color4),
+  ("name": border, "radius": 7px),
+  ("name": font, "weight": 700, "size": 15px, "height": 20px, "color": #ffffff, "family": "Helvetica Neue"),
+  ("name": b-size, "max-width": $width, "width": 200px, "height": $height)));
+  @include scale-btn__anim(0.95);
+}
+//* buttons on hover animations */
+@mixin bg-darken__anim($bg-color, $intensity) {
+  transition: box-shadow 300ms;
+  &:hover {
+    box-shadow: inset 0 3px 15px 10px rgba(darken($bg-color, 7), calc(#{$intensity}/10));
+  }
+}
+@mixin line-btn__anim($line-color, $bg-color) {
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: $line-color;
+    left: 50%;
+    bottom: 0;
+    transition: width 300ms, left 300ms;
+  }
+  &:hover {
+    &:after {
+      display: block;
+      left: 0;
+      width: 100%;
+      height: 4px;
+    }
+  }
+}
+@mixin scale-btn__anim($scale-size) {
+  transition: transform 300ms;
+  &:hover {
+    transform: scale($scale-size);
+  }
+}
