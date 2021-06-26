@@ -374,8 +374,9 @@ a.menu__consultation {
 }
 
 @media screen and (max-width: 663px) {
-  .menu-logo__container {
+  div.menu-logo__container {
     flex-direction: column;
+    align-items: flex-start;
   }
   .menu-logo__logo {
     margin: 30px 0 15px;
@@ -398,7 +399,6 @@ a.menu__consultation {
       }
     }
   }
-
 }
 
 .main__slider {
@@ -444,7 +444,7 @@ a.menu__consultation {
   span {
     margin: 5px 0;
     &.big-text {
-      font: 700 36px/26px "Helvetica Neue", sans-serif;
+      font: 700 36px/38px "Helvetica Neue", sans-serif;
       display: block;
     }
     &.small-text {
@@ -843,15 +843,27 @@ a.menu__consultation {
   height: 64px;
   border: 3px solid #ffffff;
   border-radius: 50%;
-  background: transparent url("../media/images/facebook-analysis_chevron-light.svg") center / 24px no-repeat;
   cursor: pointer;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+@media screen and (min-width: 425px) {
+  .facebook-analysis__user-data {
+    height: 453px;
+  }
+}
+@media screen and (max-width: 424px) {
+  .facebook-analysis__user-data {
+    height: 541px;
+  }
+}
 .facebook-analysis__user-data {
-  height: 448px;
   background-color: #ffffff;
   position: relative;
   margin-top: 56px;
+  padding: 48px 9.516% 68px;
 
   &:before {
     content: "";
@@ -878,7 +890,6 @@ a.menu__consultation {
   font: 400 15px/22px "Helvetica", sans-serif;
   color: #828282;
   text-align: center;
-  padding: 48px 9.516%;
   border-radius: 3px;
   * {
     display: block;
@@ -917,7 +928,7 @@ a.menu__consultation {
   &::placeholder {
     color: #b0b0b0;
   }
-  &:nth-child(8) {
+  &:nth-child(7) {
     margin-bottom: 36px;
   }
   &:focus {
@@ -939,5 +950,4 @@ a.menu__consultation {
     outline: #de2b24 solid 3px;
     outline-offset: 3px;
   }
-
 }

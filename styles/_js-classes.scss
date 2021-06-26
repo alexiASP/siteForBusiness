@@ -11,3 +11,27 @@
   visibility: visible;
   opacity: 1;
 }
+
+
+._icon-opened {
+  background-image: url("../media/images/facebook-analyis_close.svg") !important;
+  background-size: 50%;
+}
+._icon-closed {
+  background-image: url("../media/images/facebook-analysis_users-duo.svg") !important;
+  background-size: 60%;
+}
+
+._anim-rotation {
+  animation-name: _rotate;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+}
+@keyframes _rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -4698,6 +4698,24 @@ readers do not read off random characters that represent icons */
   visibility: visible;
   opacity: 1; }
 
+._icon-opened {
+  background-image: url("../media/images/facebook-analyis_close.svg") !important;
+  background-size: 50%; }
+
+._icon-closed {
+  background-image: url("../media/images/facebook-analysis_users-duo.svg") !important;
+  background-size: 60%; }
+
+._anim-rotation {
+  animation-name: _rotate;
+  animation-duration: 800ms;
+  animation-iteration-count: 1; }
+
+@keyframes _rotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
 body {
   font: normal normal 400 14px/22px "Open Sans", sans-serif; }
 
@@ -5016,8 +5034,9 @@ a.menu__consultation {
     transform: scale(0.95); }
 
 @media screen and (max-width: 663px) {
-  .menu-logo__container {
-    flex-direction: column; }
+  div.menu-logo__container {
+    flex-direction: column;
+    align-items: flex-start; }
 
   .menu-logo__logo {
     margin: 30px 0 15px; }
@@ -5100,7 +5119,7 @@ a.menu__consultation {
   .block-title span {
     margin: 5px 0; }
     .block-title span.big-text {
-      font: 700 36px/26px "Helvetica Neue", sans-serif;
+      font: 700 36px/38px "Helvetica Neue", sans-serif;
       display: block; }
     .block-title span.small-text {
       font: 300 20px/26px "Helvetica Neue", sans-serif;
@@ -5410,14 +5429,22 @@ a.menu__consultation {
   height: 64px;
   border: 3px solid #ffffff;
   border-radius: 50%;
-  background: transparent url("../media/images/facebook-analysis_chevron-light.svg") center/24px no-repeat;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat; }
 
+@media screen and (min-width: 425px) {
+  .facebook-analysis__user-data {
+    height: 453px; } }
+@media screen and (max-width: 424px) {
+  .facebook-analysis__user-data {
+    height: 541px; } }
 .facebook-analysis__user-data {
-  height: 448px;
   background-color: #ffffff;
   position: relative;
-  margin-top: 56px; }
+  margin-top: 56px;
+  padding: 48px 9.516% 68px; }
   .facebook-analysis__user-data:before {
     content: "";
     display: block;
@@ -5440,7 +5467,6 @@ a.menu__consultation {
   font: 400 15px/22px "Helvetica", sans-serif;
   color: #828282;
   text-align: center;
-  padding: 48px 9.516%;
   border-radius: 3px; }
   .user-data * {
     display: block; }
@@ -5472,7 +5498,7 @@ a.menu__consultation {
   color: #979797; }
   .user-data__input::placeholder {
     color: #b0b0b0; }
-  .user-data__input:nth-child(8) {
+  .user-data__input:nth-child(7) {
     margin-bottom: 36px; }
   .user-data__input:focus {
     border-color: #1187bf;
